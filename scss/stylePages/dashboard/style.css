@@ -1,0 +1,778 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(12, 74, 9);
+  background: linear-gradient(45deg, rgb(12, 74, 9) 0%, rgb(16, 129, 21) 50%, rgb(112, 193, 116) 100%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+body.overflow {
+  overflow-y: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  color: inherit;
+  padding: 1rem;
+}
+
+svg {
+  width: 120px;
+  height: 60px;
+}
+
+button {
+  margin: 0;
+  border: 0;
+  background: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  font-family: "Roboto";
+}
+button.primary {
+  background-color: #70C174;
+  color: #ffffff;
+}
+button.primary:hover {
+  background-color: #578859;
+}
+button.secondary {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+button.secondary:hover {
+  background-color: #1D2130;
+  color: #FFFFFF;
+}
+button.tertiary {
+  background-color: #1D2130;
+  color: #ffffff;
+}
+button.tertiary:hover {
+  background-color: #ffffff;
+  color: #1D2130;
+}
+button.special {
+  box-shadow: 0px 0px 0px 2px #578859 inset;
+  color: #000000;
+}
+button.special:hover {
+  box-shadow: 0px 0px 0px 2px #000000 inset;
+  color: #578859;
+}
+
+label {
+  cursor: pointer;
+}
+
+input, select {
+  border: none;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: #D9D9D9;
+  padding: 0 1rem;
+}
+input[type=radio], select[type=radio] {
+  width: 15px;
+  height: 15px;
+}
+
+textarea {
+  resize: none;
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 1080px) {
+  table tbody td {
+    word-break: break-word;
+    max-width: 200px;
+  }
+}
+.field {
+  word-break: break-word;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.5rem 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  z-index: 1000000;
+}
+header .logo {
+  width: 120px;
+  height: 60px;
+  z-index: 1;
+}
+header .logo svg {
+  width: 100%;
+  height: 100%;
+}
+header nav #toggleMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 60px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+}
+header nav #toggleMenu.active .bar {
+  transform: rotate(45deg);
+}
+header nav #toggleMenu.active .bar::before, header nav #toggleMenu.active .bar::after {
+  transform: rotate(90deg);
+  top: 0;
+}
+header nav #toggleMenu.active ~ #menu {
+  transform: translateX(0);
+}
+header nav #toggleMenu .bar {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2rem;
+  background-color: #1D2130;
+  transition: all 0.2s linear;
+}
+header nav #toggleMenu .bar::before, header nav #toggleMenu .bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: inherit;
+  border-radius: 2rem;
+  background-color: inherit;
+  transition: all 0.2s linear;
+}
+header nav #toggleMenu .bar::before {
+  top: -15px;
+}
+header nav #toggleMenu .bar::after {
+  top: 15px;
+}
+header nav #menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #EFF7F2;
+  transform: translateX(-100%);
+  transition: all 0.2s linear;
+  overflow: scroll;
+}
+header nav #menu li {
+  padding: 1rem 1.5rem;
+  font-family: "Roboto";
+}
+header nav #menu li#dropDownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  padding: 0;
+}
+header nav #menu li#dropDownMenu .userPhoto {
+  width: 90px;
+  height: 90px;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: #4A6C44;
+  box-sizing: content-box;
+}
+header nav #menu li#dropDownMenu .userPhoto img {
+  width: inherit;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #D9D9D9;
+}
+header nav #menu li#dropDownMenu #dropDown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  background-color: #4A6C44;
+}
+header nav #menu li#dropDownMenu #dropDown .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  color: #FFFFFF;
+  padding: 1.5rem;
+}
+header nav #menu li#dropDownMenu #dropDown .title i {
+  transition: 0.3s ease;
+}
+header nav #menu li#dropDownMenu #dropDown .title.active i {
+  transform: rotate(90deg);
+}
+header nav #menu li#dropDownMenu #dropDown .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+  color: #FFFFFF;
+}
+header nav #menu li#dropDownMenu #dropDown .content.show {
+  max-height: 30rem;
+}
+header nav #menu li#dropDownMenu #dropDown .content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+}
+header nav #menu li#dropDownMenu #dropDown .content ul li {
+  padding: 1.5rem;
+}
+header nav #menu li a {
+  padding: 1rem 0;
+}
+
+@media (min-width: 1180px) {
+  header {
+    padding: 0.5rem 5%;
+  }
+  header nav {
+    width: 100%;
+  }
+  header nav #toggleMenu {
+    display: none;
+  }
+  header nav #menu {
+    position: unset;
+    transform: translateX(0);
+    background: none;
+    flex-direction: row;
+    gap: 1rem;
+    align-self: center;
+    overflow: initial;
+    height: 100%;
+  }
+  header nav #menu li a {
+    position: relative;
+  }
+  header nav #menu li a::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 0;
+    bottom: 0.6rem;
+    background-color: #578859;
+    transition: all 0.2s linear;
+  }
+  header nav #menu li a:hover::before {
+    width: 100%;
+  }
+}
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #4A6C44;
+  width: 100%;
+  min-height: 70px;
+}
+header nav #toggleMenu .bar {
+  background-color: #FFFFFF;
+}
+header nav #menu {
+  gap: 1.5rem;
+  padding: 5rem 0;
+  background-color: #4A6C44;
+  overflow: unset;
+}
+header nav #menu .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  color: #FFFFFF;
+}
+header nav #menu .container #dropDownMenu {
+  width: 80%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+header nav #menu .container #dropDownMenu #dropDown .title {
+  color: #4A6C44;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+header nav #menu .container #dropDownMenu #dropDown .content {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #4A6C44;
+  max-height: unset;
+}
+header nav #menu li a {
+  position: relative;
+  padding: 1rem;
+}
+header nav #menu li a::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0.6rem;
+  background-color: #FFFFFF;
+  transition: all 0.2s linear;
+}
+header nav #menu li a:hover::before {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  margin: 2rem 0;
+  padding: 0 10%;
+  font-family: "Roboto";
+}
+main > .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0;
+  width: 100%;
+  color: rgba(17, 48, 13, 0.53);
+  align-self: flex-start;
+}
+main section > .title {
+  border-bottom: 2px solid #D9D9D9;
+  padding: 1rem 0;
+}
+main .cardContainer {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+main .cardContainer > * {
+  padding: 1.5rem;
+}
+main .cardContainer .titleCard {
+  border-bottom: 2px solid #D9D9D9;
+}
+main .cardContainer.notConfirmed .collectionList table tbody tr:nth-child(even) {
+  background-color: #D8FDD2;
+}
+main table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+main table:not(.fullContainer) {
+  max-width: 480px;
+}
+main table::-webkit-scrollbar {
+  display: none;
+}
+main table tr td {
+  padding: 1rem;
+}
+main table thead {
+  background-color: #D9D9D9;
+  font-weight: 500;
+  width: 100%;
+  display: table-row-group;
+}
+main table thead tr td {
+  background-color: #D9D9D9;
+}
+main table thead tr td:not(:last-child) {
+  margin-right: 1rem;
+}
+main table tbody {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: unset;
+  flex-wrap: wrap;
+  gap: 1rem;
+  display: table-row-group;
+}
+main table tbody tr {
+  border-bottom: 2px solid #D9D9D9;
+  color: #525560;
+}
+main table tbody tr td {
+  height: 3.5rem;
+}
+main table tbody tr td input {
+  height: unset;
+}
+main .collections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+}
+main .collections > * {
+  width: 100%;
+}
+main .collections .collectionDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+main .collections .collectionDetails .content {
+  display: flex;
+  flex-direction: row;
+  align-items: unset;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+main .collections .collectionDetails .content .tableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: unset;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow: hidden;
+}
+main .collections .collectionDetails .content .tableContainer .table {
+  position: relative;
+  min-height: 200px;
+}
+main .collections .collectionDetails .content .tableContainer .table .messageCollectionNotFocus {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #989090;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+main .collections .collectionDetails .content .tableContainer .headerCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+main .collections .collectionDetails .content .tableContainer .headerCard form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-grow: 1;
+}
+main .collections .collectionDetails .content .tableContainer .headerCard form button.primary {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+main .collections .collectionDetails .content .clientDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: unset;
+  flex-wrap: nowrap;
+  gap: 0;
+  max-width: 350px;
+}
+main .collections .collectionDetails .content .clientDetails .clientData {
+  display: flex;
+  flex-direction: row;
+  align-items: unset;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem 0;
+}
+main .collections .collectionDetails .content .clientDetails .clientData .field {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  min-width: 150px;
+  flex-grow: 1;
+}
+main .collections .collectionDetails .content .clientDetails .clientData .field :first-child {
+  color: #989090;
+}
+main .requests {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  min-height: 500px;
+}
+main .requests .headerCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom: 2px solid #D9D9D9;
+}
+main .requests .headerCard .titleCard {
+  border: none;
+}
+main .requests .headerCard .options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-grow: 1;
+}
+main .requests .headerCard .options .primary {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  min-width: 105px;
+}
+main .requests .headerCard .options .special {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+main .requests .collectionList {
+  width: 100%;
+  flex-grow: 1;
+  padding: 0;
+  position: relative;
+}
+main .requests .collectionList .messageCollectionNotExist {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #989090;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 525px) {
+  main .collections .collectionDetails .content .tableContainer .table table {
+    display: flex;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table thead {
+    min-height: 100%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table thead tr {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table tbody {
+    display: flex;
+    flex-direction: row;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table tbody tr {
+    flex-grow: 1;
+    border: none;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table tr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 525px) {
+  main .collections .collectionDetails .content .tableContainer .headerCard form {
+    flex-grow: unset;
+  }
+  main .requests .headerCard .options {
+    flex-grow: unset;
+  }
+}
+@media (min-width: 1200px) {
+  main .title {
+    font-size: 1.4rem;
+  }
+  main table {
+    display: inline-table;
+    max-width: unset;
+    white-space: inherit;
+  }
+  main table:not(.fullContainer) {
+    max-width: unset;
+  }
+  main table tbody tr td {
+    text-align: unset;
+  }
+  main .collections .title {
+    border: none;
+    font-size: 1.3rem;
+  }
+  main .collections .collectionDetails .content {
+    gap: 1rem;
+  }
+  main .collections .collectionDetails .content .tableContainer {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    flex-grow: 1;
+    position: relative;
+    border-radius: 0.5rem;
+  }
+  main .collections .collectionDetails .content .tableContainer .headerCard {
+    padding: 1.5rem;
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
+  main .collections .collectionDetails .content .tableContainer .table {
+    position: unset;
+  }
+  main .collections .collectionDetails .content .tableContainer .table table tbody tr td:last-child {
+    max-width: 150px;
+    text-align: justify;
+  }
+  main .requests .headerCard {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+  }
+  main .requests .collectionList {
+    padding: 0;
+  }
+}
+@media (min-width: 1180px) {
+  body {
+    display: flex;
+  }
+  header {
+    gap: 1.5rem;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 25%;
+    padding: 0;
+  }
+  header nav {
+    height: 100%;
+  }
+  header nav #menu {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    height: 100%;
+  }
+  header nav #menu .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+  }
+  main {
+    padding: 0 5%;
+  }
+}/*# sourceMappingURL=style.css.map */

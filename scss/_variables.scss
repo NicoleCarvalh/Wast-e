@@ -1,0 +1,29 @@
+// Variaveis de tamanho
+
+// 4.69 rem = 75px (calculo utilizado: 75 / 16 = 4.69 | 75 - Medida desejada em px e 16 - padrão de font-size estabelecido no arquivo "patterns.scss")
+// $heightHeaderMobile: 4.69rem;
+$heightHeaderMobile: 3.5rem;
+
+$paddingSide-mobile: 10%;
+$paddingSide-desktop: 5%;
+
+
+// Variaveis de cor
+
+$defaultColor-font: #000000;
+$whiteColor-font: #ffffff;
+
+$primaryColor-green: #70C174;
+$secondaryColor-white: #FFFFFF;
+$tertiaryColor-blue: #1D2130;
+
+$green: #578859;
+$green2: #4A6C44;
+$green3: #D8FDD2;
+$green4: #BDDABF;
+$darkGreen: #003009;
+$desabledField: #D9D9D9;
+$desabledField2: #525560;
+$desabledField3: #989090;
+
+$red: #FF0000;

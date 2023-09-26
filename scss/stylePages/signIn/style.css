@@ -1,0 +1,478 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(12, 74, 9);
+  background: linear-gradient(45deg, rgb(12, 74, 9) 0%, rgb(16, 129, 21) 50%, rgb(112, 193, 116) 100%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+body.overflow {
+  overflow-y: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  color: inherit;
+  padding: 1rem;
+}
+
+svg {
+  width: 120px;
+  height: 60px;
+}
+
+button {
+  margin: 0;
+  border: 0;
+  background: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  font-family: "Roboto";
+}
+button.primary {
+  background-color: #70C174;
+  color: #ffffff;
+}
+button.primary:hover {
+  background-color: #578859;
+}
+button.secondary {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+button.secondary:hover {
+  background-color: #1D2130;
+  color: #FFFFFF;
+}
+button.tertiary {
+  background-color: #1D2130;
+  color: #ffffff;
+}
+button.tertiary:hover {
+  background-color: #ffffff;
+  color: #1D2130;
+}
+button.special {
+  box-shadow: 0px 0px 0px 2px #578859 inset;
+  color: #000000;
+}
+button.special:hover {
+  box-shadow: 0px 0px 0px 2px #000000 inset;
+  color: #578859;
+}
+
+label {
+  cursor: pointer;
+}
+
+input, select {
+  border: none;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: #D9D9D9;
+  padding: 0 1rem;
+}
+input[type=radio], select[type=radio] {
+  width: 15px;
+  height: 15px;
+}
+
+textarea {
+  resize: none;
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 1080px) {
+  table tbody td {
+    word-break: break-word;
+    max-width: 200px;
+  }
+}
+.field {
+  word-break: break-word;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.5rem 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  z-index: 1000000;
+}
+header .logo {
+  width: 120px;
+  height: 60px;
+  z-index: 1;
+}
+header .logo svg {
+  width: 100%;
+  height: 100%;
+}
+header nav #toggleMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 60px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+}
+header nav #toggleMenu.active .bar {
+  transform: rotate(45deg);
+}
+header nav #toggleMenu.active .bar::before, header nav #toggleMenu.active .bar::after {
+  transform: rotate(90deg);
+  top: 0;
+}
+header nav #toggleMenu.active ~ #menu {
+  transform: translateX(0);
+}
+header nav #toggleMenu .bar {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 2rem;
+  background-color: #1D2130;
+  transition: all 0.2s linear;
+}
+header nav #toggleMenu .bar::before, header nav #toggleMenu .bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: inherit;
+  border-radius: 2rem;
+  background-color: inherit;
+  transition: all 0.2s linear;
+}
+header nav #toggleMenu .bar::before {
+  top: -15px;
+}
+header nav #toggleMenu .bar::after {
+  top: 15px;
+}
+header nav #menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #EFF7F2;
+  transform: translateX(-100%);
+  transition: all 0.2s linear;
+  overflow: scroll;
+}
+header nav #menu li {
+  padding: 1rem 1.5rem;
+  font-family: "Roboto";
+}
+header nav #menu li#dropDownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  padding: 0;
+}
+header nav #menu li#dropDownMenu .userPhoto {
+  width: 90px;
+  height: 90px;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: #4A6C44;
+  box-sizing: content-box;
+}
+header nav #menu li#dropDownMenu .userPhoto img {
+  width: inherit;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #D9D9D9;
+}
+header nav #menu li#dropDownMenu #dropDown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  background-color: #4A6C44;
+}
+header nav #menu li#dropDownMenu #dropDown .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  color: #FFFFFF;
+  padding: 1.5rem;
+}
+header nav #menu li#dropDownMenu #dropDown .title i {
+  transition: 0.3s ease;
+}
+header nav #menu li#dropDownMenu #dropDown .title.active i {
+  transform: rotate(90deg);
+}
+header nav #menu li#dropDownMenu #dropDown .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+  color: #FFFFFF;
+}
+header nav #menu li#dropDownMenu #dropDown .content.show {
+  max-height: 30rem;
+}
+header nav #menu li#dropDownMenu #dropDown .content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  width: 100%;
+}
+header nav #menu li#dropDownMenu #dropDown .content ul li {
+  padding: 1.5rem;
+}
+header nav #menu li a {
+  padding: 1rem 0;
+}
+
+@media (min-width: 1180px) {
+  header {
+    padding: 0.5rem 5%;
+  }
+  header nav {
+    width: 100%;
+  }
+  header nav #toggleMenu {
+    display: none;
+  }
+  header nav #menu {
+    position: unset;
+    transform: translateX(0);
+    background: none;
+    flex-direction: row;
+    gap: 1rem;
+    align-self: center;
+    overflow: initial;
+    height: 100%;
+  }
+  header nav #menu li a {
+    position: relative;
+  }
+  header nav #menu li a::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 0;
+    bottom: 0.6rem;
+    background-color: #578859;
+    transition: all 0.2s linear;
+  }
+  header nav #menu li a:hover::before {
+    width: 100%;
+  }
+}
+.inputRequired {
+  color: #FF0000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0;
+  min-height: 100vh;
+}
+
+.banner {
+  width: 100%;
+  height: 40vh;
+  background: url(../../../assets/Imagens/bannerSigin.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 10%;
+  margin: 2rem 0;
+}
+main .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  width: 100%;
+  font-family: "Yeseva One";
+  font-size: 1.5rem;
+}
+main .title #titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+main .title #titleContainer .subTitle {
+  font-size: 1.3rem;
+}
+main .title #optionsForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0;
+  width: 100%;
+  max-width: 300px;
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+main .title #optionsForm .option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.8rem;
+}
+main .form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+  width: 100%;
+}
+main .form .field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  font-family: "Roboto";
+}
+main .form .field input {
+  width: 250px;
+}
+main .form .field input#federativeUnit, main .form .field input#federativeUnitSignin {
+  width: 50px;
+  text-align: center;
+  padding: 0.5rem;
+}
+main .form:not(.active) {
+  display: none;
+}
+main .form .primary {
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1001px) {
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  .banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+  }
+  main {
+    background-color: #FFFFFF;
+    padding: 2rem 4rem;
+    border-radius: 0.5rem;
+  }
+  main .title {
+    font-size: 2rem;
+  }
+  main .form {
+    justify-content: space-between;
+  }
+  main .form .field {
+    flex-direction: row;
+    align-items: center;
+  }
+  main .form .field input {
+    width: 200px;
+  }
+}/*# sourceMappingURL=style.css.map */

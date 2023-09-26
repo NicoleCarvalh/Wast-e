@@ -1,0 +1,182 @@
+@import '../../styleComponents/menu/menu.scss';
+@import '../../styleComponents/form/form.scss';
+
+header {
+    position: sticky;
+    width: fit-content;
+    background-color: $green2;
+    width: 100%;
+    min-height: 70px;
+
+    nav {
+        #toggleMenu {
+            .bar {
+                background-color: $secondaryColor-white;
+            }
+        }
+
+        #menu {
+            gap: 1.5rem;
+            padding: 5rem 0;
+            background-color: $green2;
+            overflow: unset;
+
+            .container {
+                @include flexBox($fd: column, $g: 4rem);
+                width: 100%;
+                max-width: 400px;
+                height: 100%;
+                color: $secondaryColor-white;
+
+                #dropDownMenu {
+                    width: 80%;
+                    border-radius: 1rem;
+                    overflow: hidden;
+
+                    #dropDown {
+                        .title {
+                            color: $green2;
+                            background-color: rgba(255, 255, 255, .6);
+                        }
+
+                        .content {
+                            background-color: rgba(255, 255, 255, .4);
+                            color: $green2;
+                            max-height: unset;
+                        }
+                    }
+                }
+            }
+
+            li {
+                a {
+                    @include hover($colorBar: $secondaryColor-white);
+                }
+            }
+        }
+    }
+}
+
+main {
+    @include flexBox($fd: column, $g: 2rem);
+    width: 100%;
+    height: 100%;
+    margin: 2rem 0;
+    padding: 0 $paddingSide-mobile;
+    font-family: 'Roboto';
+
+    & > .title {
+        @include flexBox($j: flex-start, $fw: wrap);
+        width: 100%;
+        color: rgba(17, 48, 13, 0.53);
+        align-self: flex-start;      
+    }
+
+    section > .title {
+        padding: 1rem 0;
+        color: rgba(17, 48, 13, 0.53);
+    }
+
+    section {
+        @include flexBox($fd: column, $g: 1rem);
+        width: 100%;
+
+        .title {
+            width: 100%;
+        }
+    }
+
+    .form {
+        @include flexBox($j: center, $g: 2rem 1rem, $fw: wrap);
+        width: 100%;
+        max-width: 1300px;
+        
+        &#residueForm {
+            max-width: 500px;
+        }
+
+        .field {
+            @include flexBox($fd: column, $a: flex-start, $g: .5rem);
+            font-family: 'Roboto';
+
+            input {
+                width: 250px;
+
+                &#federativeUnit, &#federativeUnitSignin{
+                    width: 50px;
+                    text-align: center;
+                    padding: .5rem;
+                }
+            }
+
+            &.container:last-child {
+                flex-grow: 1;
+            }
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .primary {
+            width: 100%;
+            // max-width: 400px;
+            max-width: 300px;
+            font-size: 1rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (min-width: 650px) {
+    main {
+        .form {
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (min-width: 1080px) {
+    main {
+        .title {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+// min-width: 1180px
+@media (min-width: 1300px) {
+    body {
+        display: flex;
+    }
+
+    header {
+        gap: 1.5rem;
+
+        flex-direction: column;
+        min-height: 100vh;
+        width: 25%;
+        padding: 0;
+
+        nav {
+            height: 100%;
+
+            #menu {
+                all: unset;
+                @include flexBox($g: 1.5rem);
+                height: 100%;   
+
+                .container {
+                    @include flexBox($fd: column, $j: space-evenly, $g: 2rem);
+                    width: 100%;
+                    // max-width: 400px;
+                    height: 100%;   
+                }        
+            }
+        }
+    }
+
+    main {
+        padding: 0 $paddingSide-desktop;
+    }
+}

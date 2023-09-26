@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Noto+Serif:ital,wght@0,700;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&family=Smooch&family=Yeseva+One&display=swap');
+
+/************ RESET ******************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Yeseva One', cursive, sans-serif; 
+} 
+a, 
+a:hover,
+a:focus, 
+a:active,
+a:link {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*rolagem suave*/
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+/**********SCROLLBAR**********************/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(12,74,9);
+  background: linear-gradient(45deg, rgba(12,74,9,1) 0%, rgba(16,129,21,1) 50%, rgba(112,193,116,1) 100%);
+}
+/************ LAYOUT ******************************/
+body {
+  overflow: hidden;
+}
+.wavesabove {
+  position: relative;
+}
+.darkgreen {
+  position: relative;
+  top: -10px;
+  left: 0;
+  width: 90%;
+}
+.lightgreen {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  width: 100%;
+  height: 80%;
+}
+.text {
+  text-align: center;
+  gap: 5rem;
+}
+h1 {
+  font-size: 5.5rem;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+h3 {
+  margin-bottom: 3rem;
+}
+.primary-btn {
+  align-items: center;
+  background-color:#70C174;
+  color: rgb(255, 255, 255);
+  height: 1rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: .5rem 5rem;
+  border-radius: 4px;
+  font: 500 1rem 'Roboto', sans-serif;
+  transition: background 0.3s;
+  width: 100%;
+  margin-top: 4rem;
+}
+.primary-btn:hover {
+  background-color: #4d8350;
+}
+.wavesunderneath {
+  position: relative;
+}
+.darkgreenUnder {
+  position: relative;
+  margin-top: -10%;
+  left: 0;
+  z-index: 2;
+  width: 110%;
+}
+.lightgreenUnder {
+  position: absolute;
+  margin-top: -20%;
+  z-index: -1;
+  height: 185%;
+  margin-bottom: -6rem;
+  margin-right: -2rem;
+  width: 125%;
+}
+.truckimg {
+  width: 87%;
+  z-index: 1;
+  margin-top: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 600px) {
+  .truckimg {
+    width: 70%;
+    margin-top: 10%;
+  }
+} 
+@media (min-width: 750px) {
+  .truckimg {
+    width: 75%;
+    margin-top: 1%;
+  }
+} 
+@media (min-width: 800px) {
+  .truckimg {
+    width: 75%;
+    margin-top: 12%;
+  }
+} 
+@media (min-width: 1000px) {
+  .darkgreen {
+    position: relative;
+    margin-top: -7%;
+    left: 0;
+    width: 90%;
+  }
+  .lightgreen {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 100%;
+    height: 80%;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .text{
+    margin-left: 5%;
+  }
+  h1{
+    font-size: 8rem;
+  }
+  .wavesunderneath{
+    z-index: -1;
+  }
+  .truckimg{
+    width: 60%;
+    margin-top: 2%;
+    position: relative;
+  }
+  .darkgreenUnder {
+    position: relative;
+    margin-top: -11%;
+    left: 0;
+    z-index: 2;
+    width: 110%;
+  }
+  .lightgreenUnder {
+    position: absolute;
+    margin-top: -2%;
+    z-index: -1;
+    height: 185%;
+    margin-bottom: -6rem;
+    margin-right: -2rem;
+    width: 125%;
+  }
+} 
+@media (min-width: 1270px) {
+  .darkgreen {
+    position: relative;
+    margin-top: -12%;
+    left: 0;
+    width: 90%;
+  }
+  h1{
+    margin-top: 2rem;
+    font-size: 9rem;
+  }
+  .truckimg{
+    width: 50%;
+  }
+}
+@media (min-width: 1900px){
+  .wrapper{
+    margin-left: 10%;
+    margin-top: 1%;
+  }
+  .darkgreen {
+    position: relative;
+    margin-top: -18%;
+    left: 0;
+    width: 100%;
+  }
+  .lightgreen {
+    position: absolute;
+    margin-top: -3%;
+    left: 0px;
+    width: 100%;
+    height: 80%;
+  }
+  .truckimg{
+    width: 40%;
+    margin-top: -5%;
+  }
+  .darkgreenUnder {
+    position: relative;
+    margin-top: -11%;
+    left: 0;
+    z-index: 2;
+    width: 110%;
+  }
+  .lightgreenUnder {
+    position: absolute;
+    margin-top: -2%;
+    z-index: -1;
+    height: 185%;
+    margin-bottom: -6rem;
+    margin-right: -2rem;
+    width: 125%;
+  }
+}

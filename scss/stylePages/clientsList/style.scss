@@ -1,0 +1,289 @@
+@import '../../styleComponents/menu/menu.scss';
+
+header {
+    position: sticky;
+    width: fit-content;
+    background-color: $green2;
+    width: 100%;
+    min-height: 70px;
+
+    nav {
+        #toggleMenu {
+            .bar {
+                background-color: $secondaryColor-white;
+            }
+        }
+
+        #menu {
+            gap: 1.5rem;
+            padding: 5rem 0;
+            background-color: $green2;
+            overflow: unset;
+
+            .container {
+                @include flexBox($fd: column, $g: 4rem);
+                width: 100%;
+                max-width: 400px;
+                height: 100%;
+                color: $secondaryColor-white;
+
+                #dropDownMenu {
+                    width: 80%;
+                    border-radius: 1rem;
+                    overflow: hidden;
+
+                    #dropDown {
+                        .title {
+                            color: $green2;
+                            background-color: rgba(255, 255, 255, .6);
+                        }
+
+                        .content {
+                            background-color: rgba(255, 255, 255, .4);
+                            color: $green2;
+                            max-height: unset;
+                        }
+                    }
+                }
+            }
+
+            li {
+                a {
+                    @include hover($colorBar: $secondaryColor-white);
+                }
+            }
+        }
+    }
+}
+
+main {
+    @include flexBox($fd: column, $g: 1.5rem);
+    width: 100%;
+    height: 100%;
+    margin: 2rem 0;
+    padding: 0 $paddingSide-mobile;
+    font-family: 'Roboto';
+
+    & > .title {
+        @include flexBox($j: flex-start, $fw: wrap);
+        width: 100%;
+        color: rgba(17, 48, 13, 0.53);
+        align-self: flex-start;      
+    }
+
+    section > .title {
+        border-bottom: 2px solid $desabledField;
+        padding: 1rem 0;
+    }
+
+    .cardContainer {
+        @include card();
+
+        & > * {
+            padding: 1.5rem;
+        }
+
+        .titleCard {
+            border-bottom: 2px solid $desabledField;
+        }
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        
+        &:not(.fullContainer) {
+            max-width: 480px;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        tr {
+            td {
+                padding: 1rem;
+            }
+        }
+
+
+        thead {
+            background-color: $desabledField;
+            font-weight: 500;
+            width: 100%;
+            display: table-row-group;
+
+            tr {
+                td {
+                    background-color: $desabledField;
+
+                    &:not(:last-child) {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            @include flexBox($fd: column, $j: unset, $a: unset, $g: 1rem, $fw: wrap);  
+            display: table-row-group;
+
+            tr {
+                border-bottom: 2px solid $desabledField;
+                color: $desabledField2;
+
+                &:nth-child(even) {
+                    background-color: $green3;
+                }
+
+                td {
+                    text-align: center;
+                    height: 3.5rem;
+
+                    a {
+                        padding: 1rem 0;
+                        text-decoration: underline $green4;
+                        color: $desabledField3;
+                        transition: all .2s linear;
+
+                        &:hover {
+                            text-decoration: underline $green;
+                            color: unset; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .requests {
+        @include flexBox($fd:column, $a: unset, $j: flex-start);
+        width: 100%;
+
+        min-height: 500px;
+
+        .headerCard {
+            @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+            border-bottom: 2px solid $desabledField;
+
+            .titleCard {
+                border: none;
+            }
+        }
+
+        .collectionList {
+            width: 100%;  
+            flex-grow: 1;  
+            padding: 0;
+            position: relative;
+
+            .messageClientsNotExist {
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                width: fit-content;
+                height: fit-content;
+                color: $desabledField3;
+                text-align: center;
+                padding: 0 1.5rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 525px) {
+    main {
+        .collections {
+            .collectionDetails {
+                .content {
+                    .tableContainer {
+                        .headerCard {
+                            form {
+                                flex-grow: unset;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1080px) {
+    main {
+
+        .title {
+            font-size: 1.4rem;
+        }
+
+        table {
+            display: inline-table;
+            max-width: unset;
+            white-space: inherit;
+
+            &:not(.fullContainer) {
+                max-width: unset;
+            }
+
+            tbody {
+                tr {
+                    td {
+                        text-align: unset;
+                    }
+                }
+            }
+        }
+
+        .requests {
+            .headerCard {
+                padding: 1.5rem;
+                font-size: 1.3rem;
+            }
+
+            .collectionList {
+                padding: 0;
+            }
+        }
+    }
+}
+
+// min-width: 1180px
+@media (min-width: 1300px) {
+    body {
+        display: flex;
+    }
+
+    header {
+        gap: 1.5rem;
+
+        flex-direction: column;
+        min-height: 100vh;
+        width: 25%;
+        padding: 0;
+
+        nav {
+            height: 100%;
+
+            #menu {
+                all: unset;
+                @include flexBox($g: 1.5rem);
+                height: 100%;   
+
+                .container {
+                    @include flexBox($fd: column, $j: space-evenly, $g: 2rem);
+                    width: 100%;
+                    // max-width: 400px;
+                    height: 100%;   
+                }        
+            }
+        }
+    }
+
+    main {
+        padding: 0 $paddingSide-desktop;
+    }
+}

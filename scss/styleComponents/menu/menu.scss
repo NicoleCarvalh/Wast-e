@@ -1,0 +1,211 @@
+@import '../../patterns';
+@import '../../variables';
+@import '../../mixins';
+
+header {
+    @include flexBox($j: space-between);
+    width: 100%;
+    height: $heightHeaderMobile;
+    padding: .5rem $paddingSide-mobile;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $secondaryColor-white;
+    z-index: 1000000;
+
+    .logo {
+        width: 120px;
+        height: 60px;
+        z-index: 1;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    nav {
+        #toggleMenu {
+            @include flexBox();
+            width: 60px;
+            height: 50px;
+            position: relative;
+            z-index: 1;
+
+            &.active {
+                .bar {
+                    transform: rotate(45deg);
+
+                    &::before, &::after {
+                        transform: rotate(90deg);
+                        top: 0;
+                    }
+                }
+
+                & ~ #menu {
+                    transform: translateX(0);
+                }
+            }
+
+            .bar {
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                border-radius: 2rem;
+                background-color: $tertiaryColor-blue;
+
+                transition: all .2s linear;
+
+                &::before, &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    // Pega a altura do elemento pai (.bar)
+                    height: inherit;
+                    border-radius: 2rem;
+                    background-color: inherit;
+
+                    transition: all .2s linear;
+
+                }
+
+                &::before {
+                    top: -15px;
+                }
+
+                &::after {
+                    top: 15px;
+                }
+            }
+        }
+
+        #menu {
+            @include flexBox($fd: column, $g: 3rem);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #EFF7F2;
+            transform: translateX(-100%);
+
+            transition: all .2s linear;
+            overflow: scroll;
+
+            li {
+                padding: 1rem 1.5rem;
+                font-family: 'Roboto';
+
+                &#dropDownMenu {
+                    @include flexBox($fd: column, $g: 2rem);
+                    width: 100%;
+                    padding: 0;
+        
+                    .userPhoto {
+                        width: 90px;
+                        height: 90px;
+                        padding: .8rem;
+                        border-radius: 50%;
+                        background-color: $green2;
+                        // Possibilita a borda ser aplicada sem diminuir o width e o height da imagem
+                        box-sizing: content-box;
+
+                        img {
+                            width: inherit;
+                            height: inherit;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            border: 3px solid $desabledField;
+                        }
+                    }
+
+                    #dropDown {
+                        @include flexBox($fd: column);
+                        width: 100%;
+                        background-color: $green2;
+
+                        .title {
+                            @include flexBox($g: 2rem);
+                            width: 100%;
+                            color: $secondaryColor-white;
+                            padding: 1.5rem;
+
+                            i {
+                                transition: .3s ease;
+                            }
+
+                            &.active {
+                                i {
+                                    transform: rotate(90deg);
+                                }
+                            }
+                        }
+            
+                        .content {
+                            @include flexBox($fd: column, $g: 1rem);
+                            width: 100%;
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: .3s ease;
+                            color: $secondaryColor-white;
+            
+                            &.show {
+                                max-height: 30rem;
+                            }
+            
+                            ul {
+                                @include flexBox($fd: column, $g: 1rem);
+                                width: 100%;  
+                                
+                                li {
+                                    padding: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    padding: 1rem 0;
+                }
+            }
+        }
+    }
+}
+
+// Responsividade para as telas acima de 1001px
+// (min-width: 1001px)
+
+@media (min-width: 1180px) {
+    header {
+        padding: .5rem $paddingSide-desktop;
+
+        nav {
+            width: 100%;
+
+            #toggleMenu {
+                display: none;
+            }
+
+            #menu {
+                // Reset styles
+                position: unset;
+                transform: translateX(0);
+                background: none;
+                flex-direction: row;
+                gap: 1rem;
+                align-self: center;
+                overflow: initial;
+
+                height: 100%;
+
+                li {
+                    a {
+                        @include hover($colorBar: $green);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/Roboto/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Yeseva One';
+    src: url('../assets/fonts/yeseva/yesevaone-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/yeseva/yesevaone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Noto Serif';
+    src: url('../assets/fonts/noto-serif/notoserif-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/noto-serif/notoserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    src: url('ebgaramond-variablefont_wght-webfont.woff2') format('woff2'),
+         url('ebgaramond-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

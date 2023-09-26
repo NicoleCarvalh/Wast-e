@@ -1,0 +1,121 @@
+@import '../../styleComponents/menu/menu.scss';
+@import '../../styleComponents/form/form.scss';
+
+header {
+    position: sticky;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    @include flexBox($fd: column);
+    padding: 0 $paddingSide-mobile;
+
+    min-height: 100vh;
+
+    .formContainer {
+        @include flexBox($fd: column, $g: 2rem);
+        width: 100%;
+        max-width: 400px;
+
+        .title {
+            @include flexBox($fd: column);
+            font-family: 'Yeseva One';
+            font-size: 2rem;
+            width: 100%;
+    
+            svg {
+                width: 100%;
+                max-width: 300px;
+                height: 100px;
+            }
+        }
+
+        form {
+            @include flexBox($fd: column, $a: flex-start, $g: 1.5rem);
+            width: 100%;
+            max-width: 300px;
+            
+            .field {
+                @include flexBox($j: unset, $g: .5rem);
+                width: 100%;
+                font-family: 'Roboto';
+                // max-width: 300px;
+    
+                &.column {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .forgotPassword {
+                @include flexBox($j: space-between);
+                width: 100%;
+                
+                .field {
+                    width: fit-content;
+                    font-family: 'Roboto';
+                }
+            }
+
+            #signInSignUp {
+                @include flexBox($fd: column, $g: 1rem);
+                width: 100%;
+                margin-top: 1.5rem;
+                font-family: 'Roboto';
+
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .banner {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../../assets/Imagens/bannerLogin.jpg);
+        display: none;
+        background-repeat: no-repeat;
+        background-size: cover;    
+    }
+}
+
+.externalLink {
+    color: $darkGreen;
+    text-decoration: 2px underline;
+}
+
+// Responsividade para as telas acima de 1001px
+
+@media (min-width: 1001px) {
+    header {
+        background-color: $secondaryColor-white;
+    }
+
+    main {
+        flex-direction: row;
+        padding: 0;
+
+        .formContainer {
+            flex-direction: column;
+            max-width: 50%;
+
+            .title {
+                svg {
+                    width: 100%;
+                    max-width: 300px;
+                    height: 150px;
+                }
+            }
+        }
+
+        .banner {
+            display: block;
+        }
+    }
+}
