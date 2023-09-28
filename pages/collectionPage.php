@@ -89,7 +89,7 @@
                     </li>
     
                     <li>
-                        <a href="#">Quem somos</a>
+                        <a href="quemsomos.html">Quem somos</a>
                     </li>
     
                     <li>

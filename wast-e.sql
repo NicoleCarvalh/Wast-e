@@ -71,9 +71,9 @@ CREATE TABLE `institution_users` (
 -- Despejando dados para a tabela `institution_users`
 --
 
--- INSERT INTO `institution_users` (`user_id`, `collections_id`, `collections_id_confirmed`, `email`, `password`, `fantasyName`, `socialReason`, `cnpj`, `telephone`, `cep`, `street`, `numberBuilding`, `complementBuilding`, `neighborhood`, `city`, `federativeUnit`, `about`, `photo_path`) VALUES
--- (1, NULL, NULL, 'empresa@gmail.com', '123456', 'Empresa Exemplo LTDA', 'Exemplo LTDA', '54354354354323', '1134343434', '30100438', 'Rua Angelica', 1700, NULL, 'Mario Quintana', 'Carapicuíba', 'SP', NULL, NULL);
--- --------------------------------------------------------
+INSERT INTO `institution_users` (`user_id`, `collections_id`, `collections_id_confirmed`, `email`, `password`, `fantasyName`, `socialReason`, `cnpj`, `telephone`, `cep`, `street`, `numberBuilding`, `complementBuilding`, `neighborhood`, `city`, `federativeUnit`, `about`, `photo_path`) VALUES
+(1, NULL, NULL, 'empresa@gmail.com', '123456', 'Empresa Exemplo LTDA', 'Exemplo LTDA', '54354354354323', '1134343434', '30100438', 'Rua Angelica', 1700, NULL, 'Mario Quintana', 'Carapicuíba', 'SP', NULL, NULL);
+
 
 --
 -- Estrutura para tabela `person_users`
@@ -102,8 +102,8 @@ CREATE TABLE `person_users` (
 -- Despejando dados para a tabela `person_users`
 --
 
--- INSERT INTO `person_users` (`user_id`, `collection_id`, `email`, `password`, `name`, `surname`, `telephone`, `birth`, `cep`, `street`, `numberHouse`, `complementHouse`, `neighborhood`, `city`, `federativeUnit`, `photo_path`) VALUES
--- (4, NULL, 'emailTeste@gmail.com', '12345', 'Teste', 'Wast-e', '11947823535', '2005-01-05', '06310-100', 'Av. Presidente vargas', 453, NULL, 'Vila Mariana', 'Carapicuíba', 'SP', NULL);
+INSERT INTO `person_users` (`user_id`, `collection_id`, `email`, `password`, `name`, `surname`, `telephone`, `birth`, `cep`, `street`, `numberHouse`, `complementHouse`, `neighborhood`, `city`, `federativeUnit`, `photo_path`) VALUES
+(4, NULL, 'emailTeste@gmail.com', '12345', 'Teste', 'Wast-e', '11947800000', '1981-01-04', '06340-100', 'Av. Meu Pai Amado', 3, NULL, 'Vila Mariana', 'Gertrudes', 'SP', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -135,19 +135,19 @@ ALTER TABLE `person_users`
 -- AUTO_INCREMENT de tabela `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT de tabela `institution_users`
 --
 ALTER TABLE `institution_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT de tabela `person_users`
 --
 ALTER TABLE `person_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
